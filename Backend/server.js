@@ -14,7 +14,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
-  "https://predictive-electoral-intelligence-p.vercel.app",
+  "https://predictive-electoral-intelligence-i64y.onrender.com",
 ];
 
 const corsOptions = {
