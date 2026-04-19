@@ -11,15 +11,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors({
+const corsOptions = {
   origin: "https://predictive-electoral-intelligence-p.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+  credentials: true
+};
 
-app.options("*", cors());
 
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
