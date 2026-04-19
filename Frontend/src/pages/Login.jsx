@@ -15,9 +15,7 @@ export default function Login() {
   const login = async () => {
     setLoading(true);
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, form, {
-        withCredentials: true
-      });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, form);
       if (res.status === 200) window.location.href = "/";
     } catch (err) {
       const data = err.response?.data || {};

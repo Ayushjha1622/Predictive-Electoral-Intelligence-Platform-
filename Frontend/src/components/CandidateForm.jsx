@@ -21,9 +21,7 @@ export default function CandidateForm({ setCandidates }) {
 
   const submit = async () => {
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/candidate`, form, {
-        withCredentials: true
-      });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/candidate`, form);
       setCandidates(prev => [...prev, res.data]);
       setForm({
         name: "",

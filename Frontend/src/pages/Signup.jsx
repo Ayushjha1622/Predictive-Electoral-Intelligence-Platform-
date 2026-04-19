@@ -17,9 +17,7 @@ export default function Signup() {
     if (form.password.length < 5) return alert("Password must be at least 5 chars");
     setLoading(true);
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/signup`, form, {
-        withCredentials: true
-      });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/signup`, form);
       if (res.status === 201) window.location.href = "/login";
     } catch (err) {
       alert(err.response?.data?.error || "Registration failed");

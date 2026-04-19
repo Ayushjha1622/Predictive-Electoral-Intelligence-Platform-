@@ -4,9 +4,7 @@ import { motion } from "framer-motion";
 export default function Navbar() {
   const logout = async () => {
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/logout`, {}, {
-        withCredentials: true
-      });
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/logout`);
       window.location.href = "/login";
     } catch (err) {
       console.error("Logout failed", err);
