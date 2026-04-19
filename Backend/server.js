@@ -12,9 +12,8 @@ connectDB();
 
 const app = express();
 
-// ✅ IMPORTANT: your frontend URL
-const FRONTEND_URL = "https://predictive-electoral-intelligence-platform-eki73s6mw.vercel.app";
-// ✅ SIMPLE + SAFE CORS
+const FRONTEND_URL = process.env.FRONTEND_URL;
+
 app.use(cors({
   origin: FRONTEND_URL,
   credentials: true
