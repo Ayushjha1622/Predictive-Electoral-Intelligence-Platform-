@@ -16,7 +16,9 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/candidates");
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/candidates`, {
+          withCredentials: true
+        });
         setCandidates(res.data);
       } catch (error) {
         console.error("Error fetching candidates:", error);
@@ -29,7 +31,9 @@ export default function Dashboard() {
   const runPrediction = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5001/api/compare", { candidates });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/compare`, { candidates }, {
+        withCredentials: true
+      });
       setTimeout(() => {
         setResult(res.data);
         setLoading(false);

@@ -24,5 +24,9 @@ app.use(cookieParser());
 app.use("/api", authRoutes);
 app.use("/api", candidateRoutes);
 
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
+
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
