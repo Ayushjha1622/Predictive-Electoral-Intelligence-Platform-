@@ -13,7 +13,7 @@ export default function AuthCard({ title, children }) {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full max-w-[460px] relative z-10"
       >
-        <div className="glass p-10 overflow-hidden relative">
+        <div className="glass p-6 md:p-10 overflow-hidden relative">
           {/* Subtle line decoration */}
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50"></div>
           

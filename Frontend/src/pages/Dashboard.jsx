@@ -44,16 +44,16 @@ export default function Dashboard() {
     <div className="min-h-screen bg-[#020617]">
       <Navbar />
 
-      <main className="max-w-7xl mx-auto p-6 lg:p-10 space-y-8">
+      <main className="max-w-7xl mx-auto p-4 md:p-6 lg:p-10 space-y-8">
         {/* HEADER */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h2 className="text-3xl font-black text-white uppercase tracking-tighter">
+          <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter">
             PREDICTIVE <span className="text-cyan-400">ELECTORAL INTELLIGENCE</span> PLATFORM
           </h2>
-          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em] mt-1">Multi-Factor Candidate Analysis & Outcome Forecasting Engine</p>
+          <p className="text-[8px] md:text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em] mt-1">Multi-Factor Candidate Analysis & Outcome Forecasting Engine</p>
         </motion.div>
 
         {/* TOP ROW: INPUT & ROSTER */}

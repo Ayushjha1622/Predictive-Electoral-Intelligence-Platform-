@@ -7,18 +7,18 @@ export default function ResultPanel({ candidates, result, runPrediction, loading
   return (
     <div className="space-y-6">
       {/* 🔥 HEADER */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-xl font-black text-cyan-400 uppercase tracking-[0.2em]">
+          <h1 className="text-lg md:text-xl font-black text-cyan-400 uppercase tracking-[0.2em]">
             STRATEGIC INTELLIGENCE ENGINE
           </h1>
-          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">Operational Outcome Modeler</p>
+          <p className="text-[9px] md:text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">Operational Outcome Modeler</p>
         </div>
 
         <button 
           onClick={runPrediction} 
           disabled={candidates.length < 2 || loading}
-          className="btn w-56 shadow-lg shadow-cyan-500/20 relative overflow-hidden"
+          className="btn w-full sm:w-56 shadow-lg shadow-cyan-500/20 relative overflow-hidden"
         >
           <span className={loading ? "opacity-0" : "opacity-100"}>
             {result ? "Recalculate_Matrix" : "Run Prediction"}
@@ -39,25 +39,25 @@ export default function ResultPanel({ candidates, result, runPrediction, loading
           <motion.div 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="glass flex flex-col md:flex-row justify-between items-center px-10 py-6 gap-6"
+            className="glass grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/5 items-center p-0 overflow-hidden"
           >
-            <div>
+            <div className="p-6 text-center md:text-left">
               <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1">Projected Winner</p>
-              <h2 className="text-3xl font-black text-emerald-400 uppercase tracking-tighter">
+              <h2 className="text-2xl md:text-3xl font-black text-emerald-400 uppercase tracking-tighter">
                 {result.winner.name}
               </h2>
             </div>
 
-            <div className="text-right">
+            <div className="p-6 text-center">
               <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1">Power Index</p>
-              <h2 className="text-2xl font-black text-cyan-400">
+              <h2 className="text-xl md:text-2xl font-black text-cyan-400">
                 {result.winner.score.toFixed(2)}
               </h2>
             </div>
 
-            <div className="text-right">
+            <div className="p-6 text-center md:text-right">
               <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1">Win Probability</p>
-              <h2 className="text-2xl font-black text-purple-400">
+              <h2 className="text-xl md:text-2xl font-black text-purple-400">
                 {result.winner.pow}%
               </h2>
             </div>
@@ -69,7 +69,7 @@ export default function ResultPanel({ candidates, result, runPrediction, loading
       {result && !loading && (
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
           {/* ⚠️ GAP PANEL (LEFT SMALL) */}
-          <div className="md:col-span-4 sticky top-28">
+          <div className="md:col-span-4 md:sticky md:top-28">
             <GapAnalysis gaps={result.gaps} />
           </div>
 

@@ -68,7 +68,7 @@ export default function CandidateForm({ setCandidates }) {
           </select>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {sliders.map(s => (
             <div key={s.name} className="space-y-2">
               <div className="flex justify-between items-center">

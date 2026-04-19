@@ -77,11 +77,15 @@ select.input option {
 /* BUTTON */
 .btn {
   background: linear-gradient(135deg, #00e5ff, #7c4dff);
-  padding: 16px;
+  padding: 14px 16px;
   border-radius: 14px;
   color: #000;
   font-weight: 800;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  @media (min-width: 768px) {
+    font-size: 0.875rem;
+    padding: 16px;
+  }
   width: 100%;
   text-transform: uppercase;
   letter-spacing: 0.1em;

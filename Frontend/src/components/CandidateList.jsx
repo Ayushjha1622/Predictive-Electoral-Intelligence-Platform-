@@ -27,7 +27,7 @@ export default function CandidateList({ candidates }) {
             >
               <div className="flex justify-between items-start mb-3">
                 <div>
-                  <h3 className="font-bold text-white group-hover:text-cyan-400 transition-colors uppercase tracking-tight">{c.name}</h3>
+                  <h3 className="text-sm md:text-base font-bold text-white group-hover:text-cyan-400 transition-colors uppercase tracking-tight">{c.name}</h3>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded-md">
                       {c.party}
@@ -45,7 +45,7 @@ export default function CandidateList({ candidates }) {
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 gap-4 pt-3 border-t border-white/5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-3 border-t border-white/5">
                 <div className="space-y-1">
                   <div className="flex justify-between text-[7px] font-black text-slate-600 uppercase tracking-widest">
                     <span>Org_Strength</span>
