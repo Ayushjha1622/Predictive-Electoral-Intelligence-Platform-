@@ -10,14 +10,13 @@ const validate = (req, res, next) => {
   next();
 };
 
-router.post(
-  "/signup",
+const signupValidation = [
   body("email").isEmail(),
   body("password").isLength({ min: 5 }),
-  validate,
-  signup
-);
+  validate
+];
 
+router.post("/signup", signupValidation, signup);
 router.post("/login", login);
 router.post("/logout", logout);
 
