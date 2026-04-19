@@ -12,39 +12,24 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "https://predictive-electoral-intelligence-p.vercel.app"
-];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-
-    if (
-      allowedOrigins.includes(origin) ||
-      origin.endsWith(".vercel.app")
-    ) {
-      return callback(null, true);
-    }
-
-    return callback(new Error("Not allowed by CORS"));
-  },
+// ✅ IMPORTANT: your frontend URL
+const FRONTEND_URL = "https://predictive-electoral-intelligence-platform-eki73s6mw.vercel.app";
+// ✅ SIMPLE + SAFE CORS
+app.use(cors({
+  origin: FRONTEND_URL,
   credentials: true
-};
-
-app.use(cors(corsOptions)); // ✅ only this needed
+}));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// routes
 app.use("/api", authRoutes);
 app.use("/api", candidateRoutes);
 
+// test route
 app.get("/", (req, res) => {
-  res.send("API is running 🚀");
+  res.send("API working 🚀");
 });
 
 const PORT = process.env.PORT || 5001;
